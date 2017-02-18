@@ -1,0 +1,5 @@
+default:
+  suites:
+    default:
+      paths: ['tests/Component/Features/']
+      contexts: [Tests\Component\Features\Context\QuestionContext]
