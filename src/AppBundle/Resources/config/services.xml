@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="course_creator" class="Component\Course\Creator\CourseCreator">
+            <argument type="service" id="course_persister"/>
+        </service>
+        <service id="course_persister" class="AppBundle\Persister\CoursePersister" public="false">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
+    </services>
+    <!--
+    <parameters>
+        <parameter key="app.example.class">AppBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="app.example" class="%app.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+            <call method="setService">
+                <argument type="service" id="service_id" />
+            </call>
+            <tag name="twig.extension" />
+            <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" />
+        </service>
+    </services>
+    -->
+</container>

@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@AppBundle/Resources/config/services.xml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -60,6 +61,13 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        mappings:
+            ComponentCourse:
+                mapping: true
+                dir: "%kernel.root_dir%/Resources/config/doctrine"
+                type: xml
+                prefix: "Component\\Course\\Model"
+                alias: "ComponentCourse"
 
 # Swiftmailer Configuration
 swiftmailer:

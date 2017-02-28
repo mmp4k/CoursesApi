@@ -6,18 +6,18 @@ use Component\Question\Creator\QuestionCreator;
 use Component\Question\Model\AddQuestion;
 use Component\Question\Model\AddQuestionInterface;
 use Component\Question\Model\Question;
-use Component\Question\Persist\PersistManager;
+use Component\Question\Persist\PersistManagerInterface;
 use PhpSpec\ObjectBehavior;
 
 class QuestionCreatorSpec extends ObjectBehavior
 {
-    function it_is_initializable(PersistManager $manager)
+    function it_is_initializable(PersistManagerInterface $manager)
     {
         $this->beConstructedWith($manager);
         $this->shouldHaveType(QuestionCreator::class);
     }
 
-    function it_create_and_save_question(PersistManager $manager, AddQuestionInterface $question)
+    function it_create_and_save_question(PersistManagerInterface $manager, AddQuestionInterface $question)
     {
         $question->beADoubleOf(AddQuestion::class);
         $question->beConstructedWith(['question', 'answer']);
