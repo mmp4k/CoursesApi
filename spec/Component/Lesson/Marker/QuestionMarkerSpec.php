@@ -18,5 +18,6 @@ class QuestionMarkerSpec extends ObjectBehavior
         $this->markQuestionAsRemembered($markable, 15);
 
         $markable->setRetires(15)->shouldHaveBeenCalled();
+        $markable->isRemembered()->shouldHaveBeenCalled();
     }
 }
